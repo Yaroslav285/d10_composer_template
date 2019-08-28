@@ -35,5 +35,5 @@ xmlrpc.php
 /misc
 /modules
 /profiles
-/scripts
+#/scripts
 /themes
