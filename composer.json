@@ -22,44 +22,49 @@
         "ext-json": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
-        "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.6.5",
-        "drupal-composer/drupal-scaffold": "^2.5",
+        "aternus/geonames-client": "^1.0",
+        "composer/installers": "^1.9",
+        "consolidation/site-alias": "^3.1",
+        "cweagans/composer-patches": "^1.7",
         "drupal/adminimal_admin_toolbar": "^1.9",
         "drupal/adminimal_theme": "^1.5",
-        "drupal/commerce_shipping": "^2.0",
-        "drupal/console": "^1.9",
-        "drupal/core": "^8.7",
-        "drupal/devel": "^2.0",
-        "drupal/entity_reference_revisions": "^1.6",
-        "drupal/filefield_sources": "^1.0",
-        "drupal/image_widget_crop": "^2.2",
-	"drupal/imagefield_tokens": "^2.12",
-        "drupal/material_admin": "^1.0",
+        "drupal/bootstrap4": "^1.0@beta",
+        "drupal/bootstrap_barrio": "^4.22",
+        "drupal/bootstrap_sass": "^1.9",
+        "drupal/commerce_shipping": "^2.2",
+        "drupal/commerce_shipping_weight_tariff": "^1.0@alpha",
+        "drupal/config_inspector": "^1.1",
+        "drupal/core-recommended": "^9.3",
+        "drupal/diff": "^1.1",
+        "drupal/eck": "^1.0@beta",
+        "drupal/entity_reference_revisions": "^1.10",
+        "drupal/flysystem": "^2.0@beta",
+        "drupal/flysystem_s3": "^2.0@RC",
+        "drupal/imagefield_tokens": "^2.12",
         "drupal/metatag": "^1.0",
         "drupal/mixitup_views": "^1.0",
         "drupal/module_filter": "^3.1",
         "drupal/multiple_registration": "^2.6",
-        "drupal/paragraphs": "^1.6",
-        "drupal/profile": "^1.0@RC",
-        "drupal/range": "^1.1",
-        "drupal/restui": "^1.16",
-	"drupal/recaptcha": "^2.4",
-        "drupal/schema_metatag": "^1.0",
-        "drupal/swiftmailer": "^1.0",
-        "drupal/ultimate_cron": "^2.0",
-	"drupal/webform": "^5.4",
-        "drush/drush": "^9.0.0",
-        "guzzlehttp/guzzle": "^6.3",
-        "phpunit/phpunit": "^6.5",
-        "symfony/debug": "~3.0",
-        "symfony/dom-crawler": "~3.0",
-        "symfony/filesystem": "~3.0",
-        "symfony/finder": "~3.0",
-        "vlucas/phpdotenv": "^2.4",
-        "webflo/drupal-finder": "^1.0.0",
-        "webmozart/path-util": "^2.3",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "drupal/material_admin": "^2.0",
+        "drupal/paragraphs": "^1.15",
+        "drupal/profile": "^1.7",
+        "drupal/range": "^1.5",
+        "drupal/redis": "^1.6",
+        "drupal/restui": "^1.21",
+        "drupal/rules": "^3.0@alpha",
+        "drupal/s3fs": "^3.1",
+        "drupal/schema_metatag": "^2.4",
+        "drupal/ultimate_cron": "^2.0@alpha",
+        "drush/drush": "^10.6",
+        "guzzle/http": "^3.9",
+        "league/flysystem": "^1.1",
+        "mikey179/vfsstream": "^1.6",
+        "vlucas/phpdotenv": "^3.0",
+        "webflo/drupal-finder": "^1.2"
+    },
+    "require-dev": {
+        "drupal/core-dev": "^9.3",
+        "zaporylie/composer-drupal-optimizations": "^1.2"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -67,7 +72,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "zaporylie/composer-drupal-optimizations": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true
+        }
     },
     "autoload": {
         "classmap": [
@@ -103,15 +115,13 @@
             "drush/Commands/{$name}": ["type:drupal-drush"]
         },
         "drupal-scaffold": {
+           "locations": {
+             "web-root": "web/"
+           },
             "initial": {
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
             }
         }
-    },
-    "require-dev": {
-        "behat/mink": "^1.7",
-        "behat/mink-goutte-driver": "^1.2",
-        "symfony/phpunit-bridge": "^4.3"
     }
 }
