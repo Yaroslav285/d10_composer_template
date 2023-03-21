@@ -37,8 +37,8 @@ WORKDIR /opt/drupal
 COPY . /opt/drupal
 
 RUN set -eux; \
-  chown -R www-data:www-data www/sites www/modules www/themes; \
+  chown -R www-data:www-data web/sites web/modules web/themes; \
   rmdir /var/www/html; \
-  ln -sf /opt/drupal/www /var/www/html
+  ln -sf /opt/drupal/web /var/www/html
 
 ENV PATH=${PATH}:/opt/drupal/vendor/bin
