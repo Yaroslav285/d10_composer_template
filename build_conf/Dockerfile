@@ -4,9 +4,9 @@ FROM php:8.1-apache-bullseye
 # install the PHP extensions we need
 RUN set -eux; \
   \
-  apk update; \
-  apk add gnupg mysql-client zlib-dev libzip-dev autoconf  build-base; \
-  apk add \
+  apt-get update; \
+  apt-get install gnupg mysql-client zlib-dev libzip-dev autoconf  build-base; \
+  apt-get install -y --no-install-recommends \
   libjpeg-turbo-dev \
   libpng-dev \
   libwebp-dev \
@@ -28,8 +28,7 @@ RUN set -eux; \
   opcache \
   pdo_mysql \
   zip \
-  ; \
-  \
+  ;
 
 WORKDIR /opt/drupal
 
