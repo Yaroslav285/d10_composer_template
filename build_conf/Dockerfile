@@ -5,7 +5,7 @@ FROM php:8.1-apache-bullseye
 RUN set -eux; \
   \
   apt-get update; \
-  apt-get install gnupg mysql-client zlib-dev libzip-dev autoconf  build-base; \
+  apt-get install apt-transport-https gnupg cron default-mysql-client libjpeg-turbo-progs; \
   apt-get install -y --no-install-recommends \
   libjpeg-turbo-dev \
   libpng-dev \
