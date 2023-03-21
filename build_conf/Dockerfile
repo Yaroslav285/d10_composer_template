@@ -7,12 +7,14 @@ RUN set -eux; \
   apt-get update; \
   apt-get install -y apt-transport-https gnupg cron default-mysql-client libjpeg-turbo-progs; \
   apt-get install -y --no-install-recommends \
-  libjpeg-turbo-dev \
-  libpng-dev \
-  libwebp-dev \
-  freetype-dev \
+  libfreetype6-dev \
   optipng \
   advancecomp \
+  libjpeg-dev \
+  libwebp-dev \
+  libpng-dev \
+  libpq-dev \
+  libzip-dev \
   ; \
   \
   docker-php-ext-configure gd \
