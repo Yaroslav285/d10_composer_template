@@ -37,7 +37,7 @@ WORKDIR /opt/drupal
 COPY . /opt/drupal
 
 RUN set -eux; \
-  chown -R www-data:www-data web/sites web/modules web/themes; \
+  chown -R www-data:www-data web; \
   rmdir /var/www/html; \
   ln -sf /opt/drupal/web /var/www/html
 
