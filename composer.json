@@ -118,7 +118,7 @@
         },
         "drupal-scaffold": {
            "locations": {
-             "web-root": "web/"
+             "web-root": "./web"
            },
             "initial": {
                 ".editorconfig": "../.editorconfig",
