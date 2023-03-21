@@ -34,6 +34,7 @@
         "drupal/commerce_shipping": "^2.2",
         "drupal/commerce_shipping_weight_tariff": "^1.0@alpha",
         "drupal/config_inspector": "^1.1",
+        "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drupal/diff": "^1.1",
         "drupal/eck": "^1.0@beta",
