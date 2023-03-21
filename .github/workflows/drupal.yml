@@ -30,7 +30,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: composer install --ignore-platform-reqs -v --no-interaction
 
     - name: Add SHORT_SHA env property with commit short sha
       run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
