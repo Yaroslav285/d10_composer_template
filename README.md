@@ -1,1 +1,1 @@
-# d8_composer_template
+# d9_composer_template
