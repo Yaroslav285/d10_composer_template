@@ -37,10 +37,12 @@ jobs:
 
     - name: Build image
       run: |
-        echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin docker.io
-        docker build . --file build_conf/Dockerfile --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:$SHORT_SHA
-        docker push docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:$SHORT_SHA
-
+        #echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin docker.io
+        #docker build . --file build_conf/Dockerfile --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:$SHORT_SHA
+        #docker push docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:$SHORT_SHA
+        echo "${{ secrets.GH_BUILD_TOKEN }}" | docker login "${{ secrets.GH_CR_REPO }}" -u "${{ secrets.GH_UNAME }}" --password-stdin docker.io
+        docker build . --file build_conf/Dockerfile --tag ${{ secrets.GH_CR_REPO }}/${{ secrets.GH_UNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:$SHORT_SHA
+        docker push ${{ secrets.GH_CR_REPO }}/${{ secrets.GH_UNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:$SHORT_SHA
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
