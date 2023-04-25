@@ -30,7 +30,9 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer update --ignore-platform-reqs -v --no-interaction
+      run: |
+            composer install --ignore-platform-reqs -v --no-interaction
+            composer update laminas/diactoros
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
