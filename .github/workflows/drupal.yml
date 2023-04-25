@@ -32,6 +32,7 @@ jobs:
     - name: Install dependencies
       run: |
             composer update --ignore-platform-reqs -v --no-interaction
+            composer require "laminas/laminas-diactoros:^2.18"
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
