@@ -32,9 +32,15 @@ RUN set -eux; \
   zip \
   ;
 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends dialog \
+    && apt-get install -y --no-install-recommends openssh-server \
+    && echo ${SSH_CREDS} | chpasswd;
+
 WORKDIR /opt/drupal
 
 COPY . /opt/drupal
+COPY build_conf/sshd_config /etc/ssh/sshd_config
 
 RUN set -eux; \
   chown -R www-data:www-data web/sites web/modules web/themes; \
