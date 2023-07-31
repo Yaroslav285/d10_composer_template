@@ -3,8 +3,6 @@ FROM php:8.1-apache-bullseye
 
 ARG SSH_CREDS='test'
 
-RUN echo ${SSH_CREDS}
-
 # install the PHP extensions we need
 RUN set -eux; \
   \
@@ -50,5 +48,7 @@ RUN set -eux; \
   chown -R www-data:www-data web/sites web/modules web/themes; \
   rmdir /var/www/html; \
   ln -sf /opt/drupal/web /var/www/html
+
+EXPOSE 80 2222
 
 ENV PATH=${PATH}:/opt/drupal/vendor/bin
