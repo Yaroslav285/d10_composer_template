@@ -53,4 +53,6 @@ EXPOSE 80 2222
 
 ENV PATH=${PATH}:/opt/drupal/vendor/bin
 
+RUN mkdir -p -m0755 /var/run/sshd
+
 CMD [ "sh", "-c", "/usr/sbin/sshd && apache2-foreground" ]
