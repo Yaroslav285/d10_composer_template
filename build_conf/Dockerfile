@@ -52,3 +52,5 @@ RUN set -eux; \
 EXPOSE 80 2222
 
 ENV PATH=${PATH}:/opt/drupal/vendor/bin
+
+CMD [ "sh", "-c", "/usr/sbin/sshd && apache2-foreground" ]
