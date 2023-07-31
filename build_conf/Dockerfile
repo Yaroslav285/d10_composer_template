@@ -1,6 +1,8 @@
 # Deployable PHP image
 FROM php:8.1-apache-bullseye
 
+RUN echo ${SSH_CREDS}
+
 # install the PHP extensions we need
 RUN set -eux; \
   \
