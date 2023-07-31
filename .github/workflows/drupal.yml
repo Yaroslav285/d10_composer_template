@@ -46,7 +46,7 @@ jobs:
     - name: Build image
       run: |
         echo "${{ secrets.GH_BUILD_TOKEN }}" | docker login -u "${{ secrets.GH_UNAME }}" --password-stdin "${{ secrets.GH_CR_REPO }}"
-        docker build . --file build_conf/Dockerfile --tag ${{ secrets.GH_CR_REPO }}/${{ secrets.GH_UNAME }}/${{ github.event.repository.name }}:$SHORT_SHA
+        docker build . --file build_conf/Dockerfile --build-arg SSH_CREDS={{secrets.SSH_CREDS}} --tag ${{ secrets.GH_CR_REPO }}/${{ secrets.GH_UNAME }}/${{ github.event.repository.name }}:$SHORT_SHA
         docker push ${{ secrets.GH_CR_REPO }}/${{ secrets.GH_UNAME }}/${{ github.event.repository.name }}:$SHORT_SHA
     
     
