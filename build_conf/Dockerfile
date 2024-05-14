@@ -1,5 +1,5 @@
 # Deployable PHP image
-FROM php:8.1-apache-bullseye
+FROM php:8.2-apache-bullseye
 
 ARG SSH_CREDS='test'
 
