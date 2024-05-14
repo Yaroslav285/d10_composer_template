@@ -25,6 +25,10 @@ RUN set -eux; \
   --with-webp \
   ; \
   \
+  pecl install uploadprogress; \
+  pecl install apcu; \
+  docker-php-ext-enable apcu; \
+  docker-php-ext-enable uploadprogress; \
   docker-php-ext-install -j "$(nproc)" \
   bcmath \
   gd \
