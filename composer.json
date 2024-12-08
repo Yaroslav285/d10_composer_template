@@ -80,7 +80,8 @@
             "oomphinc/composer-installers-extender": true,
             "php-http/discovery": true,
             "drupal/core-project-message": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true
         }
     },
     "autoload": {
